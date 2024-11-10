@@ -1,0 +1,12 @@
+** sch_path: /Users/shunsuke/src/design/xschem/VCO/SA_VCO_INV.sch
+**.subckt SA_VCO_INV VDD IN OUT VSS nchSource
+*.iopin nchSource
+*.ipin IN
+*.opin OUT
+*.iopin VDD
+*.iopin VSS
+M1 OUT IN nchSource VSS NMOS L=1u W=1u m=2
+M2 OUT IN VDD VDD PMOS L=1u W=2u m=2
+C1 OUT VSS Ndiff_cap W=4 L=4
+**.ends
+.end
