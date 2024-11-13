@@ -29,4 +29,4 @@ cp -r $locXschemDir/* $repXschemDir/ ; cp -r $locKlayoutDir/* $repKlayoutDir/
 
 echo "###loc2rep done###"
 
-
+exit 0
