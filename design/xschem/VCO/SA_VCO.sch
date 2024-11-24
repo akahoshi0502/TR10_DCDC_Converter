@@ -22,6 +22,14 @@ N 440 80 560 80 {lab=VSS}
 N 440 -400 560 -400 {lab=VDD}
 N 530 -160 560 -160 {lab=OUT}
 N 330 -400 330 -290 {lab=VDD}
+N 230 20 270 20 {lab=VSS}
+N 270 20 270 50 {lab=VSS}
+N 230 50 270 50 {lab=VSS}
+N 230 80 270 80 {lab=VSS}
+N 270 50 270 80 {lab=VSS}
+N 190 50 190 80 {lab=VSS}
+N 190 80 230 80 {lab=VSS}
+N 270 80 330 80 {lab=VSS}
 C {VCO/RO_9.sym} 380 -160 0 0 {name=x1}
 C {primitives/nfet.sym} 310 -10 0 0 {name=M1 
 model=nchor1ex
@@ -33,3 +41,9 @@ C {devices/iopin.sym} 560 -400 0 0 {name=p2 lab=VDD}
 C {devices/iopin.sym} 560 80 0 0 {name=p3 lab=VSS}
 C {devices/ipin.sym} -20 -60 0 0 {name=p4 lab=BIAS_IN}
 C {devices/opin.sym} 560 -160 0 0 {name=p5 lab=OUT}
+C {primitives/nfet.sym} 210 50 0 0 {name=M2 
+model=nchor1ex
+W=2u
+L=1u
+m=2
+}

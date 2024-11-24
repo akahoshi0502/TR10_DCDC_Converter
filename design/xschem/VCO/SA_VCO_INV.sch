@@ -23,22 +23,31 @@ N 190 -120 300 -120 {lab=OUT}
 N 220 -280 220 -220 {lab=VDD}
 N 120 -220 220 -220 {lab=VDD}
 N 120 -40 240 -40 {lab=VSS}
-N 240 -120 240 -100 {lab=OUT}
-C {primitives/nfet.sym} 20 -40 0 0 {name=M1 
+N 200 -120 200 -80 {lab=OUT}
+N 240 -110 290 -110 {lab=VSS}
+N 290 -110 290 -40 {lab=VSS}
+N 240 -40 290 -40 {lab=VSS}
+N 240 -50 240 -40 {lab=VSS}
+N 240 -80 290 -80 {lab=VSS}
+C {primitives/nfet.sym} 220 -80 0 0 {name=M1 
 model=nchor1ex
-W=1u
-L=1u
-m=2
+W=6u
+L=3u
+m=1
 }
 C {primitives/pfet.sym} 20 -220 0 0 {name=M2 
 model=pchor1ex
-W=2u
+W=4u
 L=1u
-m=2
-}
+m=4}
 C {devices/iopin.sym} 220 80 0 0 {name=p5 lab=nchSource}
 C {devices/ipin.sym} -120 -120 0 0 {name=p1 lab=IN}
 C {devices/opin.sym} 300 -120 0 0 {name=p3 lab=OUT}
 C {devices/iopin.sym} 120 -220 0 0 {name=p4 lab=VDD}
 C {devices/iopin.sym} 120 -40 0 0 {name=p6 lab=VSS}
-C {primitives/Ndiff_cap.sym} 240 -70 0 0 {name=C1 model=Ndiff_cap W=4 L=4}
+C {primitives/nfet.sym} 20 -40 0 0 {name=M3 
+model=nchor1ex
+W=4u
+L=1u
+m=2
+}

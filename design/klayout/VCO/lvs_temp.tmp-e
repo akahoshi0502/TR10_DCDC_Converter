@@ -1,0 +1,82 @@
+** sch_path: /Users/shunsuke/src/design/xschem/VCO/SA_VCO_TOP.sch
+.subckt SA_VCO_TOP VDD BIAS_IN OUT VSS
+*.PININFO BIAS_IN:I VDD:B VSS:B OUT:O
+x1 VDD O2D BIAS_IN VSS SA_VCO
+x2 VDD VSS OUT O2D SA_DFF_Counter_8
+.ends
+
+* expanding   symbol:  VCO/SA_VCO.sym # of pins=4
+** sym_path: /Users/shunsuke/src/design/xschem/VCO/SA_VCO.sym
+** sch_path: /Users/shunsuke/src/design/xschem/VCO/SA_VCO.sch
+.subckt SA_VCO VDD OUT BIAS_IN VSS
+*.PININFO VDD:B VSS:B BIAS_IN:I OUT:O
+x1 VDD VDD VSS net1 OUT RO_9
+M1 net1 BIAS_IN VSS VSS nchor1ex L=1u W=2u m=4
+M2 VSS VSS VSS VSS nchor1ex L=1u W=2u m=2
+.ends
+
+
+* expanding   symbol:  VCO/SA_DFF_Counter_8.sym # of pins=4
+** sym_path: /Users/shunsuke/src/design/xschem/VCO/SA_DFF_Counter_8.sym
+** sch_path: /Users/shunsuke/src/design/xschem/VCO/SA_DFF_Counter_8.sch
+.subckt SA_DFF_Counter_8 VDD VSS OUT IN
+*.PININFO IN:I VDD:B VSS:B OUT:O
+x1 VDD VSS net1 IN SA_DFF_Counter
+x2 VDD VSS net2 net1 SA_DFF_Counter
+x3 VDD VSS net3 net2 SA_DFF_Counter
+x4 VDD VSS net4 net3 SA_DFF_Counter
+x5 VDD VSS net5 net4 SA_DFF_Counter
+x6 VDD VSS net6 net5 SA_DFF_Counter
+x7 VDD VSS net7 net6 SA_DFF_Counter
+x8 VDD VSS OUT net7 SA_DFF_Counter
+.ends
+
+
+* expanding   symbol:  VCO/RO_9.sym # of pins=5
+** sym_path: /Users/shunsuke/src/design/xschem/VCO/RO_9.sym
+** sch_path: /Users/shunsuke/src/design/xschem/VCO/RO_9.sch
+.subckt RO_9 pchSource VDD VSS nchSource OUT
+*.PININFO pchSource:B VDD:B VSS:B nchSource:B OUT:O
+x2 VDD net1 net2 VSS nchSource SA_VCO_INV
+x3 VDD net2 net3 VSS nchSource SA_VCO_INV
+x4 VDD net3 net4 VSS nchSource SA_VCO_INV
+x5 VDD net4 net5 VSS nchSource SA_VCO_INV
+x6 VDD net5 net6 VSS nchSource SA_VCO_INV
+x7 VDD net6 net7 VSS nchSource SA_VCO_INV
+x8 VDD net7 OUT VSS nchSource SA_VCO_INV
+x9 VDD OUT net9 VSS nchSource SA_VCO_INV
+x1 VDD net8 net1 VSS nchSource SA_VCO_INV
+x11 VDD net9 net10 VSS nchSource SA_VCO_INV
+x12 VDD net10 net11 VSS nchSource SA_VCO_INV
+x13 VDD net11 net12 VSS nchSource SA_VCO_INV
+x14 VDD net12 net13 VSS nchSource SA_VCO_INV
+x15 VDD net13 net14 VSS nchSource SA_VCO_INV
+x16 VDD net14 net15 VSS nchSource SA_VCO_INV
+x17 VDD net15 net16 VSS nchSource SA_VCO_INV
+x18 VDD net16 net8 VSS nchSource SA_VCO_INV
+M1 VSS VSS VSS VSS nchor1ex L=1u W=4u m=4
+M2 VDD VDD VDD VDD pchor1ex L=1u W=4u m=4
+.ends
+
+
+* expanding   symbol:  VCO/SA_DFF_Counter.sym # of pins=4
+** sym_path: /Users/shunsuke/src/design/xschem/VCO/SA_DFF_Counter.sym
+** sch_path: /Users/shunsuke/src/design/xschem/VCO/SA_DFF_Counter.sch
+.subckt SA_DFF_Counter VDD VSS OUT IN
+*.PININFO IN:I VDD:B VSS:B OUT:O
+.include /Users/shunsuke/.xschem/lib/stdcells_sim/dff1.lib
+x2 IN net1 OUT net1 VDD VSS dff1
+.ends
+
+
+* expanding   symbol:  VCO/SA_VCO_INV.sym # of pins=5
+** sym_path: /Users/shunsuke/src/design/xschem/VCO/SA_VCO_INV.sym
+** sch_path: /Users/shunsuke/src/design/xschem/VCO/SA_VCO_INV.sch
+.subckt SA_VCO_INV VDD IN OUT VSS nchSource
+*.PININFO nchSource:B IN:I OUT:O VDD:B VSS:B
+M1 VSS OUT VSS VSS nchor1ex L=3u W=6u m=1
+M2 OUT IN VDD VDD pchor1ex L=1u W=4u m=4
+M3 OUT IN nchSource VSS nchor1ex L=1u W=4u m=2
+.ends
+
+.end
