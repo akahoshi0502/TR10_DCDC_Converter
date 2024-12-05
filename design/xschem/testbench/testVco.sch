@@ -38,8 +38,12 @@ N 630 -200 770 -200 {lab=BIAS_IN}
 N 630 -210 630 -200 {lab=BIAS_IN}
 N 590 -210 630 -210 {lab=BIAS_IN}
 N 1070 -180 1180 -180 {lab=OUT}
-N 1180 -120 1180 -80 {lab=GND}
 N 1100 -80 1180 -80 {lab=GND}
+N 1220 -210 1240 -210 {lab=GND}
+N 1240 -210 1240 -80 {lab=GND}
+N 1180 -80 1240 -80 {lab=GND}
+N 1220 -150 1220 -80 {lab=GND}
+N 1220 -180 1240 -180 {lab=GND}
 C {devices/vdd.sym} 460 -410 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} 460 -40 0 0 {name=l2 lab=GND}
 C {devices/vsource.sym} 140 -160 0 0 {name=V1 value=5 savecurrent=true}
@@ -64,9 +68,10 @@ m=4
 C {devices/isource.sym} 360 -290 0 0 {name=I0 value=500u}
 C {devices/lab_pin.sym} 440 -170 0 1 {name=p2 sig_type=std_logic lab=BIAS_IN}
 C {VCO/SA_VCO_TOP.sym} 920 -180 0 0 {name=x1}
-C {devices/res.sym} 1180 -150 0 0 {name=R1
-value=1T
-footprint=1206
-device=resistor
-m=1}
 C {devices/lab_pin.sym} 1150 -180 0 0 {name=p1 sig_type=std_logic lab=OUT}
+C {primitives/nfet.sym} 1200 -180 0 0 {name=M2 
+model=nchor1ex
+W=4u
+L=2u
+m=100
+}
